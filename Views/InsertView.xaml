@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="ujablak.Views.InsertView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <StackPanel Margin="20" Width="300">
+
+        <!-- Név -->
+        <TextBlock Text="Név:" Margin="0,0,0,5"/>
+        <TextBox Text="{Binding Name}" Margin="0,0,0,10"/>
+
+        <!-- Email -->
+        <TextBlock Text="Email:" Margin="0,0,0,5"/>
+        <TextBox Text="{Binding Email}" Margin="0,0,0,20"/>
+
+        <!-- Mentés gomb -->
+        <Button Content="Mentés"
+                Command="{Binding SaveCommand}"
+                Height="30"/>
+
+    </StackPanel>
+</UserControl>
