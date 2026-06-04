@@ -46,8 +46,14 @@ namespace ujablak.ViewModels
                 OnPropertyChanged();
             }
         }
-
+        //10. létrehozom a parancsokat a gombokhoz
         // --- PARANCSOK (GOMBOKHOZ) ---
+        //nem onclick eseménykezelőt használok, hanem ICommand-ot, hogy a gombokhoz parancsokat rendeljek
+        //az ICommand egy interfész, már elkészítették mint pl a max() függvényt a LINQ-ban
+        //Az interfész csatlakozási felületet jelent. Két különböző dolog találkozási pontja.
+        //<Button Content="Lista Megjelenítése" Command="{Binding ShowListCommand}" />
+        //Az ICommand rendelkezik pl: CanExecute (Megnyomhatom?) vagy Execute (Mit csináljak, ha megnyomták?) metódusokkal, amiket a RelayCommandban találunk.
+        //menjünk a RelayCommand osztályba a 11. pontra
         public ICommand ShowListCommand { get; }
         public ICommand ShowInsertCommand { get; }
         public ICommand ShowDeleteCommand { get; }

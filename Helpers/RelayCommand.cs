@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
-
+//11. létrehozom a RelayCommand osztályt, amely megvalósítja az ICommand interfészt
+//: ICommand megörököltük az ott lévő metódusokat
 public class RelayCommand : ICommand
 {
     private readonly Action _execute;
