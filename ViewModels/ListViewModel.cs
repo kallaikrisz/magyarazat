@@ -3,6 +3,7 @@ using ujablak.Models;
 
 namespace ujablak.ViewModels
 {
+    //17. létrehozom a ListViewModel osztályt
     public class ListViewModel
     {
         private MainViewModel _mainVM;

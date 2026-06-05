@@ -54,21 +54,28 @@ namespace ujablak.ViewModels
         //<Button Content="Lista Megjelenítése" Command="{Binding ShowListCommand}" />
         //Az ICommand rendelkezik pl: CanExecute (Megnyomhatom?) vagy Execute (Mit csináljak, ha megnyomták?) metódusokkal, amiket a RelayCommandban találunk.
         //menjünk a RelayCommand osztályba a 11. pontra
+        //A MainWindow.xaml-ben <Button Content="Lista" Command="{Binding ShowListCommand}"... így jelenik meg
+        // A három gombnak három különböző parancsot hozunk létre, amelyek a CurrentView értékét változtatják
         public ICommand ShowListCommand { get; }
         public ICommand ShowInsertCommand { get; }
         public ICommand ShowDeleteCommand { get; }
-
+        //12.pont
         // --- KONSTRUKTOR ---
         public MainViewModel()
         {
-            // ideiglenes adatok (később TXT-ből jön majd)
+            //Customers listát feltöltöm a DataService.Load() metódusával
+            //ObservableCollection ("okoslista") ami a Modelsben létrehozott Customer osztály típusú elemeket tartalmaz
+            //nézzük meg a 13. pontot a Customer osztályban a Models mappában
+            //14.pont most a DataService.Load() függvény miatt elmegyünk a DataService osztályba (Services mappa) 15.pontra
             Customers = new ObservableCollection<Customer>(DataService.Load());
-
+            //16. a Customers feltöltődött a Load() metódus által
+            //létrehozom a parancsokat, és megadom nekik itt lentebb a végrehajtandó műveletet
             ShowListCommand = new RelayCommand(ShowList);
             ShowInsertCommand = new RelayCommand(ShowInsert);
             ShowDeleteCommand = new RelayCommand(ShowDelete);
 
-            // kezdő nézet
+            // kezdő nézet amikor a program elindul
+            //ugorjunk a ListViewModel osztályra a ViewModels mappában a 17. pontra
             CurrentView = new ListViewModel(this);
         }
 
